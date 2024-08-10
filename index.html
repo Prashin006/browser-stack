@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Client Side File</title>
+    </head>
+    <body>
+        <h1>Hi here we can get last 10 lines of the log file below</h1>
+        <div id="log"></div>
+        <p>ok?</p>
+
+        <script>
+            const div = document.getElementById('log');
+
+            const socket = new WebSocket('ws://localhost:3000');
+
+            socket.addEventListener('message', (event) => {
+                div.innerText += event.data + '\n';
+                div.scrollTop = div.scrollHeight;
+            });
+
+            socket.addEventListener('open', function (event) {
+                console.log('Connected to WebSocket server');
+            });
+
+            socket.addEventListener('close', function (event) {
+                console.log('Disconnected from WebSocket server');
+            });
+        </script>
+    </body>
+</html>

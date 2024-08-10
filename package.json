@@ -1,0 +1,16 @@
+{
+  "name": "browser-stack-assignment",
+  "version": "1.0.0",
+  "description": "This repository contains the code for a server that monitors a log file and pushes updates to the clients connected in real-time sending only the updates and not the entire file",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server"
+  },
+  "author": "Prashin Parikh",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "socket.io": "^4.7.5",
+    "ws": "^8.18.0"
+  }
+}
